@@ -1,0 +1,47 @@
+#Questão 04
+tam = 1
+fila_servidor = [str] * tam
+
+def adicionar(fila, elemento):
+    fila.append (elemento)
+
+def processar_tarefa (fila):
+    valor = fila[0]
+    pergunta = str(input('Deseja remover uma tarefa? (S/N) : '))
+    if pergunta == 'S':
+        fila.pop (0)
+        return print ('Tarefa finalizada: ', valor) 
+    elif pergunta == 'N':
+        print ('Continuando o processamento das tarefas...')
+        pass
+    
+def condicional (fila):
+    pergunta = str(input('Deseja adicionar uma tarefa? (S/N) : '))
+    if pergunta == 'S':
+        adicionar(fila, str(input('Insira a tarefa a ser adicionada: '))) 
+        print ('Tarefa adicionada com Sucesso!')
+        print ('Fila de Tarefas Atual: ',fila)
+        print ('')
+    elif pergunta == 'N':
+        print ('Continuando o processamento das tarefas...')
+        print ('')
+        pass
+
+print ('Questão 04')
+print ('Bem Vindo ao Processamento de Tarefas!')
+print ('')
+for i in range(tam):
+    fila_servidor[i] = str(input('Insira a tarefa a ser processada: '))
+   
+print ('')
+
+while len(fila_servidor) > 0:
+    processar_tarefa(fila_servidor)
+    print ('')
+    print ('Fila de Tarefas Atual: ',fila_servidor)
+    print ('')
+    condicional(fila_servidor)
+    if len(fila_servidor) == 0:
+        print ('Fila Vazia')
+        print ('')
+        print ('Programa executado com Sucesso!')
