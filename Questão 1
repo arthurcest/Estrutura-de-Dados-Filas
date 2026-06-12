@@ -1,0 +1,43 @@
+#Questão 01
+def adicionar(fila, elemento):
+    fila.append (elemento)
+
+def remover(fila, indice):
+    valor = fila[indice]
+    fila.pop (indice)
+    fila.insert (0,valor)
+
+def verificar(fila):
+   if len(fila) == 0:
+       print ('Fila Vazia')
+   else:
+       print ('Fila com elementos')
+
+def tam_atual (fila):
+    return len(fila)
+    
+tamanho = 4
+fila = [int] * tamanho
+
+print ('#Questão 01')
+print ('')
+print ('Digite valores a serem inseridos na fila: ')
+print ('')
+
+for i in range(len(fila)):
+    fila[i] = int(input('Insira um valor: '))
+
+print ('')
+print ('Fila Atual: ', fila)
+print ('')
+print (adicionar(fila, int(input('Agora adicione um novo elemento na fila: '))))
+print ('')
+print ('Fila Atualizada: ',fila)
+print ('')
+print (remover(fila, int(input('Mova um elemento da fila para o início de acordo com seu índice: '))))
+print ('')
+print ('Fila Atualizada: ',fila)
+print ('')
+print ('O tamanho atual da fila é: ', tam_atual(fila), 'elementos')
+print ('')
+print ('Programa executado com Sucesso!')
