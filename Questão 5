@@ -1,0 +1,70 @@
+# Questão 05 
+
+# Inicializamos a fila vazia
+fila_clientes = []
+
+def adicionar_cliente(fila, nome_cliente):
+    # Insere o cliente no final da fila
+    fila.append(nome_cliente)
+
+def chamar_cliente(fila):
+    # Verifica o primeiro da fila (índice 0)
+    cliente_atual = fila[0]
+    pergunta = input('Atendente disponível. Deseja chamar o próximo cliente? (S/N): ').strip().upper()
+    
+    if pergunta == 'S':
+        # Remove o primeiro cliente da fila (FIFO)
+        fila.pop(0)
+        print('Cliente chamado ao balcão:', cliente_atual)
+    elif pergunta == 'N':
+        print('Atendente pausou o chamamento...')
+    else:
+        print('Opção inválida. Digite S ou N.')
+
+def gerenciar_chegada(fila):
+    pergunta = input('Chegou um novo cliente na loja? (S/N): ').strip().upper()
+    
+    if pergunta == 'S':
+        nome = input('Insira o nome do cliente a ser adicionado à fila: ')
+        adicionar_cliente(fila, nome) 
+        print('Cliente', nome, 'adicionado com sucesso!')
+        print('Fila de Atendimento Atual:', fila)
+        print('')
+    elif pergunta == 'N':
+        print('Aguardando novos clientes...')
+        print('')
+    else:
+        print('Opção inválida. Digite S ou N.')
+
+# --- INÍCIO DO PROGRAMA PRINCIPAL ---
+
+print('Questão 05')
+print('Bem-vindo ao Sistema de Atendimento da Loja!')
+print('')
+
+# Alimentando o primeiro cliente para iniciar o loop
+primeiro_cliente = input('Insira o nome do primeiro cliente na fila: ')
+adicionar_cliente(fila_clientes, primeiro_cliente)
+print('')
+
+# Loop principal de funcionamento da loja
+while len(fila_clientes) > 0:
+    chamar_cliente(fila_clientes)
+    print('')
+    print('Fila de Atendimento Atual:', fila_clientes)
+    print('')
+    
+    gerenciar_chegada(fila_clientes)
+    
+    # Tratativa de UX: Se a fila esvaziar, perguntamos se a loja vai fechar 
+    # ou se vai aguardar um novo cliente antes de encerrar o programa.
+    if len(fila_clientes) == 0:
+        print('A fila está vazia no momento.')
+        manter_aberto = input('Deseja aguardar um novo cliente antes de fechar o sistema? (S/N): ').strip().upper()
+        if manter_aberto == 'S':
+            gerenciar_chegada(fila_clientes)
+        
+        if len(fila_clientes) == 0:
+            print('')
+            print('Fila Vazia. Expediente finalizado!')
+            print('Programa executado com Sucesso!')
