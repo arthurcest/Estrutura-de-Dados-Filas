@@ -1,0 +1,41 @@
+tam = 5
+fila = [str] * tam
+qtd = 0
+
+def atender_cliente (fila):
+    valor = fila[0]
+    fila.pop (0)
+    return print ('Cliente Chamado: ', valor)
+    
+def fila_vazia (fila):
+    if len(fila) == 0:
+        return print ('Fila Vazia')
+   
+print ('#Questão 02')
+print ('')
+print ('Digite o nome de cinco clientes para formar a fila: ')
+print ('')
+
+for i in range(len(fila)):
+    fila[i] = str(input('Digite o nome do cliente: '))
+    qtd = qtd + 1
+    print ('A quantidade de pessoas na fila: ', qtd, ' clientes')
+    print ('')
+
+print ('Fila Atual: ',fila)
+print ('')
+
+while len(fila) > 0:
+    atender_cliente(fila)
+    print ('')
+    print ('Fila Atual: ',fila)
+    print ('')
+    if len(fila) == 0:
+        print ('Fila Vazia')
+        print ('')
+        print ('Programa executado com Sucesso!')
+    
+
+
+
+
