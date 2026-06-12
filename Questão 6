@@ -1,0 +1,13 @@
+class Documento:
+    def __init__(self, nome, paginas):
+        self.nome = nome
+        self.paginas = paginas
+
+fila_impressao = Fila()
+fila_impressao.adicionar(Documento("Relatorio_Final.pdf", 15))
+fila_impressao.adicionar(Documento("Apresentacao_Reuniao.pptx", 30))
+
+print("\nFila de Impressão:")
+while not fila_impressao.vazia():
+    doc = fila_impressao.remover()
+    print(f"A imprimir documento: '{doc.nome}' com {doc.paginas} páginas.")
