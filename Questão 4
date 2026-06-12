@@ -1,0 +1,18 @@
+#Questão 03
+
+def inverter_fila(fila_lista):
+    fila_invertida = []
+    while len(fila_lista) > 0:
+        
+        fila_invertida.insert(0, fila_lista.pop(0))
+    return fila_invertida
+
+fila = [10, 20, 30, 40]
+saida_invertida = inverter_fila(fila)
+print(f"Fila invertida: {saida_invertida}")
+
+
+
+
+
+
